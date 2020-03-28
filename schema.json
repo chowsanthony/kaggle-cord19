@@ -1,0 +1,445 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The Root Schema for Kaggle Data Challenge",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+        "paper_id",
+        "metadata",
+        "abstract",
+        "body_text",
+        "bib_entries",
+        "ref_entries",
+        "back_matter"
+    ],
+    "properties": {
+        "paper_id": {
+            "$id": "#/properties/paper_id",
+            "type": "string",
+            "title": "The Paper_id Schema",
+            "description": "40-character sha1 of the PDF.",
+            "default": "",
+            "examples": [
+                "000b7d1517ceebb34e1e3e817695b6de03e2fa78"
+            ]
+        },
+        "metadata": {
+            "$id": "#/properties/metadata",
+            "type": "object",
+            "title": "The Metadata Schema",
+            "description": "",
+            "default": {},
+            "required": [
+                "title",
+                "authors"
+            ],
+            "properties": {
+                "title": {
+                    "$id": "#/properties/metadata/properties/title",
+                    "type": "string",
+                    "title": "The Title Schema",
+                    "description": "",
+                    "default": ""
+                },
+                "authors": {
+                    "$id": "#/properties/metadata/properties/authors",
+                    "type": "array",
+                    "title": "The Authors Schema",
+                    "description": "",
+                    "default": [],
+                    "items": {
+                        "$id": "#/properties/metadata/properties/authors/items",
+                        "type": "object",
+                        "title": "The Items Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "required": [
+                            "first",
+                            "middle",
+                            "last",
+                            "suffix",
+                            "affiliation",
+                            "email"
+                        ],
+                        "properties": {
+                            "first": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/first",
+                                "type": "string",
+                                "title": "The First Schema",
+                                "description": "",
+                                "default": ""
+                            },
+                            "middle": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/middle",
+                                "type": "array",
+                                "title": "The Middle Schema",
+                                "description": "",
+                                "default": []
+                            },
+                            "last": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/last",
+                                "type": "string",
+                                "title": "The Last Schema",
+                                "description": "",
+                                "default": ""
+                            },
+                            "suffix": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/suffix",
+                                "type": "string",
+                                "title": "The Suffix Schema",
+                                "description": "",
+                                "default": ""
+                            },
+                            "affiliation": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/affiliation",
+                                "type": "object",
+                                "title": "The Affiliation Schema",
+                                "description": "",
+                                "default": {},
+                                "required": [
+                                    "laboratory",
+                                    "institution",
+                                    "location"
+                                ],
+                                "properties": {
+                                    "laboratory": {
+                                        "$id": "#/properties/metadata/properties/authors/items/properties/affiliation/properties/laboratory",
+                                        "type": "string",
+                                        "title": "The Laboratory Schema",
+                                        "description": "",
+                                        "default": ""
+                                    },
+                                    "institution": {
+                                        "$id": "#/properties/metadata/properties/authors/items/properties/affiliation/properties/institution",
+                                        "type": "string",
+                                        "title": "The Institution Schema",
+                                        "description": "",
+                                        "default": ""
+                                    },
+                                    "location": {
+                                        "$id": "#/properties/metadata/properties/authors/items/properties/affiliation/properties/location",
+                                        "type": "object",
+                                        "title": "The Location Schema",
+                                        "description": "",
+                                        "default": {},
+                                        "required": [
+                                            "addrLine",
+                                            "country"
+                                        ],
+                                        "properties": {
+                                            "addrLine": {
+                                                "$id": "#/properties/metadata/properties/authors/items/properties/affiliation/properties/location/properties/addrLine",
+                                                "type": "string",
+                                                "title": "The Addrline Schema",
+                                                "description": "",
+                                                "default": ""
+                                            },
+                                            "country": {
+                                                "$id": "#/properties/metadata/properties/authors/items/properties/affiliation/properties/location/properties/country",
+                                                "type": "string",
+                                                "title": "The Country Schema",
+                                                "description": "",
+                                                "default": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "email": {
+                                "$id": "#/properties/metadata/properties/authors/items/properties/email",
+                                "type": "string",
+                                "title": "The Email Schema",
+                                "description": "",
+                                "default": ""
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "abstract": {
+            "$id": "#/properties/abstract",
+            "type": "array",
+            "title": "The Abstract Schema",
+            "description": "List of paragraphs in the abstract.",
+            "default": []
+        },
+        "body_text": {
+            "$id": "#/properties/body_text",
+            "type": "array",
+            "title": "The Body_text Schema",
+            "description": "List of paragraphs in full body",
+            "default": [],
+            "items": {
+                "$id": "#/properties/body_text/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "description": "",
+                "default": {},
+                "required": [
+                    "text",
+                    "cite_spans",
+                    "ref_spans",
+                    "section"
+                ],
+                "properties": {
+                    "text": {
+                        "$id": "#/properties/body_text/items/properties/text",
+                        "type": "string",
+                        "title": "The Text Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "cite_spans": {
+                        "$id": "#/properties/body_text/items/properties/cite_spans",
+                        "type": "array",
+                        "title": "The Cite_spans Schema",
+                        "description": "",
+                        "default": []
+                    },
+                    "ref_spans": {
+                        "$id": "#/properties/body_text/items/properties/ref_spans",
+                        "type": "array",
+                        "title": "The Ref_spans Schema",
+                        "description": "",
+                        "default": [],
+                        "items": {
+                            "$id": "#/properties/body_text/items/properties/ref_spans/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "description": "",
+                            "default": {},
+                            "required": [
+                                "start",
+                                "end",
+                                "text",
+                                "ref_id"
+                            ],
+                            "properties": {
+                                "start": {
+                                    "$id": "#/properties/body_text/items/properties/ref_spans/items/properties/start",
+                                    "type": "number",
+                                    "title": "The Start Schema",
+                                    "description": "",
+                                    "default": 0
+                                },
+                                "end": {
+                                    "$id": "#/properties/body_text/items/properties/ref_spans/items/properties/end",
+                                    "type": "number",
+                                    "title": "The End Schema",
+                                    "description": "",
+                                    "default": 0
+                                },
+                                "text": {
+                                    "$id": "#/properties/body_text/items/properties/ref_spans/items/properties/text",
+                                    "type": "string",
+                                    "title": "The Text Schema",
+                                    "description": "",
+                                    "default": ""
+                                },
+                                "ref_id": {
+                                    "$id": "#/properties/body_text/items/properties/ref_spans/items/properties/ref_id",
+                                    "type": "string",
+                                    "title": "The Ref_id Schema",
+                                    "description": "",
+                                    "default": ""
+                                }
+                            }
+                        }
+                    },
+                    "section": {
+                        "$id": "#/properties/body_text/items/properties/section",
+                        "type": "string",
+                        "title": "The Section Schema",
+                        "description": "",
+                        "default": ""
+                    }
+                }
+            }
+        },
+        "bib_entries": {
+            "$id": "#/properties/bib_entries",
+            "type": "object",
+            "title": "The Bib_entries Schema",
+            "description": "",
+            "default": {},
+            "patternProperties": {
+                "^BIBREF": {
+                    "type": "object"
+                }
+            },
+            "additionalProperties": {
+                "$id": "#/properties/bib_entries/properties/BIBREF",
+                "type": "object",
+                "title": "The Bibref Schema",
+                "description": "",
+                "default": {},
+                "required": [
+                    "ref_id",
+                    "title",
+                    "authors",
+                    "year",
+                    "venue",
+                    "volume",
+                    "issn",
+                    "pages",
+                    "other_ids"
+                ],
+                "properties": {
+                    "ref_id": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/ref_id",
+                        "type": "string",
+                        "title": "The Ref_id Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "title": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/title",
+                        "type": "string",
+                        "title": "The Title Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "authors": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/authors",
+                        "type": "array",
+                        "title": "The Authors Schema",
+                        "description": "",
+                        "default": []
+                    },
+                    "year": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/year",
+                        "title": "The Year Schema",
+                        "description": "",
+                        "default": null
+                    },
+                    "venue": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/venue",
+                        "type": "string",
+                        "title": "The Venue Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "volume": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/volume",
+                        "type": "string",
+                        "title": "The Volume Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "issn": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/issn",
+                        "type": "string",
+                        "title": "The Issn Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "pages": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/pages",
+                        "type": "string",
+                        "title": "The Pages Schema",
+                        "description": "",
+                        "default": ""
+                    },
+                    "other_ids": {
+                        "$id": "#/properties/bib_entries/properties/BIBREF/properties/other_ids",
+                        "type": "object",
+                        "title": "The Other_ids Schema",
+                        "description": "",
+                        "default": {}
+                    }
+                }
+            }
+        }
+    },
+    "ref_entries": {
+        "$id": "#/properties/ref_entries",
+        "type": "object",
+        "title": "The Ref_entries Schema",
+        "description": "",
+        "default": {},
+        "patternProperties": {
+            "^TABREF": {
+                "type": "object"
+            }
+        },
+        "additionalProperties": {
+            "$id": "#/properties/ref_entries/properties/TABREF",
+            "type": "object",
+            "title": "The Tabref Schema",
+            "description": "",
+            "default": {},
+            "required": [
+                "text",
+                "latex",
+                "type"
+            ],
+            "properties": {
+                "text": {
+                    "$id": "#/properties/ref_entries/properties/TABREF/properties/text",
+                    "type": "string",
+                    "title": "The Text Schema",
+                    "description": "",
+                    "default": ""
+                },
+                "latex": {
+                    "$id": "#/properties/ref_entries/properties/TABREF0/properties/latex",
+                    "title": "The Latex Schema",
+                    "description": "",
+                    "default": null
+                },
+                "type": {
+                    "$id": "#/properties/ref_entries/properties/TABREF0/properties/type",
+                    "type": "string",
+                    "title": "The Type Schema",
+                    "description": "",
+                    "default": "table"
+                }
+            }
+        }
+    },
+    "back_matter": {
+        "$id": "#/properties/back_matter",
+        "type": "array",
+        "title": "The Back_matter Schema",
+        "description": "",
+        "default": [],
+        "required": [
+            "text",
+            "cite_spans",
+            "ref_spans",
+            "section"
+        ],
+        "properties": {
+            "text": {
+                "$id": "#/properties/back_matter/items/properties/text",
+                "type": "string",
+                "title": "The Text Schema",
+                "description": "",
+                "default": ""
+            },
+            "cite_spans": {
+                "$id": "#/properties/back_matter/items/properties/cite_spans",
+                "type": "array",
+                "title": "The Cite_spans Schema",
+                "description": "",
+                "default": []
+            },
+            "ref_spans": {
+                "$id": "#/properties/back_matter/items/properties/ref_spans",
+                "type": "array",
+                "title": "The Ref_spans Schema",
+                "description": "",
+                "default": []
+            },
+            "section": {
+                "$id": "#/properties/back_matter/items/properties/section",
+                "type": "string",
+                "title": "The Section Schema",
+                "description": "",
+                "default": "Acknowledgments"
+            }
+        }
+    }
+}
